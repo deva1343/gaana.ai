@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Music Generator - Music</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Choices.js CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>AI Music Generator</h1>
+    </header>
+    <div class="container">
+        <nav class="vertical-nav">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="music.html">Music Generator</a>
+                <a href="library.html">Library</a>
+                <a href="credits.html">Credits</a>
+                <a href="community.html">Global User Community</a>
+            </div>
+            <div class="nav-footer">
+                <a href="help.html">Help</a>
+                <a href="about.html">About</a>
+                <a href="career.html">Career</a>
+            </div>
+        </nav>
+        <main class="main-content">
+            <div class="tool-container">
+                <div class="tool-sidebar">
+                    <label for="lyrics">Enter Your Lyrics:</label>
+                    <textarea id="lyrics"></textarea>
+                    
+                    <label for="instruments">Select Instruments:</label>
+                    <select id="instruments" multiple>
+                        <option value="piano">Piano</option>
+                        <option value="guitar">Guitar</option>
+                        <option value="drums">Drums</option>
+                        <!-- Add more options as needed -->
+                    </select>
+
+                    <label for="genre">Select Genre:</label>
+                    <select id="genre">
+                        <option value="rock">Rock</option>
+                        <option value="pop">Pop</option>
+                        <option value="jazz">Jazz</option>
+                        <!-- Add more options as needed -->
+                    </select>
+
+                    <label for="mood">Select Mood:</label>
+                    <select id="mood">
+                        <option value="happy">Happy</option>
+                        <option value="sad">Sad</option>
+                        <option value="energetic">Energetic</option>
+                        <!-- Add more options as needed -->
+                    </select>
+
+                    <label for="prompt">Enter Prompt:</label>
+                    <textarea id="prompt"></textarea>
+
+                    <button class="generate-btn">Generate Music</button>
+                </div>
+                <div class="music-preview">
+                    <h3>Generated Music Preview</h3>
+                    <div class="waveform"></div>
+                    <!-- Your existing music preview elements -->
+                </div>
+            </div>
+        </main>
+        <aside class="song-details">
+            <h2>Created Song Details</h2>
+            <p><strong>Lyrics:</strong> <span id="lyrics-preview">N/A</span></p>
+            <p><strong>Selected Genre:</strong> <span id="genre-preview">N/A</span></p>
+            <p><strong>Selected Mood:</strong> <span id="mood-preview">N/A</span></p>
+            <p><strong>Prompt:</strong> <span id="prompt-preview">N/A</span></p>
+        </aside>
+    </div>
+    <footer>
+        <p>&copy; 2024 AI Music Generator</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var instruments = new Choices('#instruments', {
+                removeItemButton: true,
+                maxItemCount: 5,
+                searchResultLimit: 5,
+                placeholderValue: 'Select up to 5 instruments',
+                searchEnabled: false
+            });
+        });
+    </script>
+</body>
+</html>
