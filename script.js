@@ -80,5 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Example call to fetch users data
-    fetchUsers();
+    // Remove or comment out if not needed
+    // fetchUsers();
 });
