@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('https://b2b6-103-82-43-28.ngrok-free.app/signup', {
+                const response = await fetch('https://ebfb-103-82-43-29.ngrok-free.app/signup', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('https://b2b6-103-82-43-28.ngrok-free.app/login', {
+                const response = await fetch('https://ebfb-103-82-43-29.ngrok-free.app/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch users data (for testing purposes)
     const fetchUsers = async () => {
         try {
-            const response = await fetch('https://b2b6-103-82-43-28.ngrok-free.app/users');
+            const response = await fetch('https://ebfb-103-82-43-29.ngrok-free.app/users');
             const data = await response.json();
             console.log(data);
             let usersList = document.getElementById('users');
