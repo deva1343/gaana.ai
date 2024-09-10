@@ -17,8 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
                 const result = await response.json();
                 console.log(result);
+
                 if (result.status === 'User created') {
                     alert('Sign-up successful!');
                     window.location.href = 'sign-in.html'; // Redirect to sign-in page
@@ -49,8 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
                 const result = await response.json();
                 console.log(result);
+
                 if (result.status === 'Login successful') {
                     alert('Login successful!');
                     window.location.href = 'index.html'; // Redirect to the main page
@@ -68,8 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchUsers = async () => {
         try {
             const response = await fetch('https://1e58-103-82-43-29.ngrok-free.app/users');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
             const data = await response.json();
             console.log(data);
+
             let usersList = document.getElementById('users');
             if (usersList) {
                 usersList.innerHTML = data.map(user => `<li>${user.username} (${user.email})</li>`).join('');
