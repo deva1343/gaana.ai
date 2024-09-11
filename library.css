@@ -1,0 +1,132 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #e0e0e0;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    padding: 80px 20px 20px; /* Padding top adjusted for fixed header */
+}
+
+h1 {
+    color: #f04e30;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.library {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.song-item {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.song-item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+    transform: translateY(-5px);
+}
+
+.song-info {
+    flex: 1;
+}
+
+.song-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background-color: #f04e30;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #d6452b;
+    transform: scale(1.05);
+}
+
+.edit-btn {
+    background-color: #f0ad4e;
+}
+
+.edit-btn:hover {
+    background-color: #ec971f;
+}
+
+.delete-btn {
+    background-color: #d9534f;
+}
+
+.delete-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #e0e0e0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

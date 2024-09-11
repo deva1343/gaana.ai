@@ -1,0 +1,5 @@
+# Created at 2024-09-09T22:27:32.056
+Boot Manifest-JAR contains absolute paths in classpath 'E:\gaanaai.ai\New folder\ai-music-backend\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

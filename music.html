@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,3 +136,141 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Music Generator - Music Generator</title>
+    <link rel="stylesheet" href="music.css">
+    <!-- Include Choices.js CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>AI Music Generator</h1>
+        <nav>
+            <a href="user-home.html">Home</a>
+            <a href="music.html">Music Generator</a>
+            <a href="library.html">Library</a>
+            <a href="credits.html">Credits</a>
+            <a href="global-community.html">Global User Community</a>
+	    <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <main class="main-content">
+            <div class="tool-container">
+                <div class="tool-sidebar">
+                    <label for="lyrics">Enter Your Lyrics:</label>
+                    <textarea id="lyrics"></textarea>
+                    
+                    <label for="instruments">Select Instruments:</label>
+                    <select id="instruments" multiple>
+                        <option value="piano">Piano</option>
+                        <option value="guitar">Guitar</option>
+                        <option value="drums">Drums</option>
+                        <option value="bass-guitar">Bass Guitar</option>
+                        <option value="synthesizer">Synthesizer</option>
+                        <option value="drum-machine">Drum Machine</option>
+                        <option value="double-bass">Double Bass</option>
+                        <option value="saxophone">Saxophone</option>
+                        <option value="trumpet">Trumpet</option>
+                        <option value="trombone">Trombone</option>
+                        <option value="violin">Violin</option>
+                        <option value="cello">Cello</option>
+                        <option value="flute">Flute</option>
+                        <option value="oboe">Oboe</option>
+                        <option value="french-horn">French Horn</option>
+                        <option value="turntable">Turntable</option>
+                        <option value="sampler">Sampler</option>
+                        <option value="daw">Digital Audio Workstation (DAW)</option>
+                        <option value="bass-synthesizer">Bass Synthesizer</option>
+                        <option value="harmonica">Harmonica</option>
+                        <option value="acoustic-guitar">Acoustic Guitar</option>
+                        <option value="banjo">Banjo</option>
+                        <option value="fiddle">Fiddle (Violin)</option>
+                        <option value="steel-guitar">Steel Guitar</option>
+                        <option value="electric-guitar-slide">Electric Guitar (with slide)</option>
+                        <option value="mandolin">Mandolin</option>
+                        <option value="accordion">Accordion</option>
+                        <option value="double-bass-drums">Double Bass Drums</option>
+                        <option value="bongos-congas">Bongos/Congas</option>
+                    </select>
+
+                    <label for="genre">Select Genre:</label>
+                    <select id="genre">
+                        <option value="rock">Rock</option>
+                        <option value="pop">Pop</option>
+                        <option value="jazz">Jazz</option>
+                        <!-- Add more options as needed -->
+                    </select>
+
+                    <label for="mood">Select Mood:</label>
+                    <select id="mood">
+                        <option value="happy">Happy</option>
+                        <option value="sad">Sad</option>
+                        <option value="energetic">Energetic</option>
+                        <!-- Add more options as needed -->
+                    </select>
+
+                    <label for="prompt">Enter Prompt:</label>
+                    <textarea id="prompt"></textarea>
+
+                    <button class="generate-btn">Generate Music</button>
+                </div>
+                <div class="music-preview">
+                    <h3>Generated Music Preview</h3>
+                    <div class="waveform"></div>
+                    <!-- Your existing music preview elements -->
+                </div>
+            </div>
+            <aside class="song-details">
+                <h2>Created Song Details</h2>
+                <p><strong>Lyrics:</strong> <span id="lyrics-preview">N/A</span></p>
+                <p><strong>Selected Genre:</strong> <span id="genre-preview">N/A</span></p>
+                <p><strong>Selected Mood:</strong> <span id="mood-preview">N/A</span></p>
+                <p><strong>Prompt:</strong> <span id="prompt-preview">N/A</span></p>
+            </aside>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AI Music Generator</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var instruments = new Choices('#instruments', {
+                removeItemButton: true,
+                maxItemCount: 5,
+                searchResultLimit: 5,
+                placeholderValue: 'Select up to 5 instruments',
+                searchEnabled: false
+            });
+
+            // Check user session
+            const checkSession = async () => {
+                try {
+                    const response = await fetch('/api/check-session', {
+                        method: 'GET',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    if (response.status === 401) {
+                        alert('Session expired or not authenticated. Redirecting to login page.');
+                        window.location.href = 'sign-in.html';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            };
+
+            checkSession();
+        });
+    </script>
+</body>
+</html>
+>>>>>>> 59f5528 (This is first time i project code pushed 12 sept)

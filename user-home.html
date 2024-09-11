@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,3 +53,77 @@
     </footer>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Music Generator - Dashboard</title>
+    <link rel="stylesheet" href="user-home.css">
+</head>
+<body>
+    <header>
+        <div class="logo">AI Music</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="music.html">Music Generator</a>
+            <a href="library.html">Library</a>
+            <a href="credits.html">Credits</a>
+            <a href="global-community.html">Global User Community</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome">
+            <h1>Welcome back, [User]!</h1>
+            <p>Explore your dashboard, manage your profile, and discover new features.</p>
+        </section>
+
+        <section class="quick-links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="music.html">Generate Music</a></li>
+                <li><a href="library.html">My Library</a></li>
+                <li><a href="profile.html">Manage Profile</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="help.html">Help Center</a></li>
+            </ul>
+        </section>
+
+        <section class="updates">
+            <h2>Latest Updates</h2>
+            <p>Check out the latest features and improvements to our AI music generation tools.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AI Music Generator. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check user session
+            const checkSession = async () => {
+                try {
+                    const response = await fetch('/api/check-session', {
+                        method: 'GET',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    if (response.status === 401) {
+                        alert('Session expired or not authenticated. Redirecting to login page.');
+                        window.location.href = 'sign-in.html';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            };
+
+            checkSession();
+        });
+    </script>
+</body>
+</html>
+>>>>>>> 59f5528 (This is first time i project code pushed 12 sept)

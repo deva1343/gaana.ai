@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global User Community</title>
+    <link rel="stylesheet" href="global-community.css"> <!-- Using the same CSS file for consistency -->
+</head>
+<body>
+    <header>
+        <h1>Global User Community</h1>
+        <nav>
+            <a href="user-home.html">Home</a>
+            <a href="music.html">Music Generator</a>
+            <a href="library.html">Library</a>
+            <a href="credits.html">Credits</a>
+            <a href="global-community.html">Global User Community</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <!-- Community Overview -->
+        <section class="community-overview">
+            <h2>Welcome to the Global Community</h2>
+            <p>Connect with other users, share your creations, and participate in discussions.</p>
+        </section>
+        
+        <!-- User Interaction Areas -->
+        <section class="user-interactions">
+            <h3>Recent Posts</h3>
+            <div class="posts">
+                <!-- Sample Post -->
+                <article class="post">
+                    <h4>Post Title</h4>
+                    <p>Post content preview...</p>
+                    <a href="#" class="read-more">Read more</a>
+                </article>
+                <!-- More posts can be added dynamically -->
+            </div>
+        </section>
+        
+        <!-- Featured Users -->
+        <section class="featured-users">
+            <h3>Featured Users</h3>
+            <div class="users">
+                <!-- Sample User Profile -->
+                <div class="user-profile">
+                    <img src="user-avatar.jpg" alt="User Avatar">
+                    <p><strong>Username</strong></p>
+                    <p>Short bio or user information...</p>
+                    <a href="#" class="view-profile">View Profile</a>
+                </div>
+                <!-- More user profiles can be added dynamically -->
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AI Music Generator. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check user session
+            const checkSession = async () => {
+                try {
+                    const response = await fetch('/api/check-session', {
+                        method: 'GET',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    if (response.status === 401) {
+                        alert('Session expired or not authenticated. Redirecting to login page.');
+                        window.location.href = 'sign-in.html';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            };
+
+            checkSession();
+        });
+    </script>
+</body>
+</html>

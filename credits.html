@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Music Generator - Subscription Plans</title>
+    <link rel="stylesheet" href="credits.css">
+</head>
+<body>
+    <header>
+        <div class="logo">AI Music Generator</div>
+        <nav>
+            <a href="user-home.html">Home</a>
+            <a href="music.html">Music Generator</a>
+            <a href="library.html">Library</a>
+            <a href="credits.html">Credits</a>
+            <a href="global-community.html">Global User Community</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Manage Subscription</h1>
+        <p>Choose the plan that works for you.</p>
+
+        <div class="billing-options">
+            <button class="billing-btn active" id="monthly-btn">Monthly Billing</button>
+            <button class="billing-btn" id="yearly-btn">Yearly Billing</button>
+        </div>
+
+        <div id="plans" class="plans">
+            <!-- Monthly Billing Plans -->
+            <div class="plan" id="basic-monthly">
+                <h2>Basic Plan</h2>
+                <div class="price">$0/month</div>
+                <p>Active</p>
+                <ul>
+                    <li>50 credits renew daily (10 songs)</li>
+                    <li>Non-commercial terms</li>
+                    <li>No credit top ups</li>
+                    <li>Shared generation queue</li>
+                    <li>2 running jobs at once</li>
+                </ul>
+                <button class="subscribe-btn">Active</button>
+            </div>
+
+            <div class="plan" id="pro-monthly">
+                <h2>Pro Plan</h2>
+                <div class="price">$10/month</div>
+                <button class="subscribe-btn">Subscribe</button>
+                <button class="switch-btn" id="switch-to-yearly-pro">Switch to yearly billing</button>
+                <ul>
+                    <li>2,500 credits renew monthly (500 songs)</li>
+                    <li>General commercial terms</li>
+                    <li>Optional credit top ups</li>
+                    <li>Priority generation queue</li>
+                    <li>10 running jobs at once</li>
+                </ul>
+            </div>
+
+            <div class="plan" id="premier-monthly">
+                <h2>Premier Plan</h2>
+                <div class="price">$30/month</div>
+                <button class="subscribe-btn">Subscribe</button>
+                <button class="switch-btn" id="switch-to-yearly-premier">Switch to yearly billing</button>
+                <ul>
+                    <li>10,000 credits renew monthly (2,000 songs)</li>
+                    <li>General commercial terms</li>
+                    <li>Optional credit top ups</li>
+                    <li>Priority generation queue</li>
+                    <li>10 running jobs at once</li>
+                </ul>
+            </div>
+
+            <!-- Yearly Billing Plans -->
+            <div class="plan" id="basic-yearly" style="display: none;">
+                <h2>Basic Plan</h2>
+                <div class="price">$0/year</div>
+                <p>Active</p>
+                <ul>
+                    <li>50 credits renew daily (10 songs)</li>
+                    <li>Non-commercial terms</li>
+                    <li>No credit top ups</li>
+                    <li>Shared generation queue</li>
+                    <li>2 running jobs at once</li>
+                </ul>
+                <button class="subscribe-btn">Active</button>
+            </div>
+
+            <div class="plan" id="pro-yearly" style="display: none;">
+                <h2>Pro Plan</h2>
+                <div class="price">$96/year</div>
+                <button class="subscribe-btn">Subscribe</button>
+                <button class="switch-btn" id="switch-to-monthly-pro">Switch to monthly billing</button>
+                <ul>
+                    <li>2,500 credits renew monthly (500 songs)</li>
+                    <li>General commercial terms</li>
+                    <li>Optional credit top ups</li>
+                    <li>Priority generation queue</li>
+                    <li>10 running jobs at once</li>
+                </ul>
+            </div>
+
+            <div class="plan" id="premier-yearly" style="display: none;">
+                <h2>Premier Plan</h2>
+                <div class="price">$288/year</div>
+                <button class="subscribe-btn">Subscribe</button>
+                <button class="switch-btn" id="switch-to-monthly-premier">Switch to monthly billing</button>
+                <ul>
+                    <li>10,000 credits renew monthly (2,000 songs)</li>
+                    <li>General commercial terms</li>
+                    <li>Optional credit top ups</li>
+                    <li>Priority generation queue</li>
+                    <li>10 running jobs at once</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 AI Music Generator. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const monthlyBtn = document.getElementById('monthly-btn');
+            const yearlyBtn = document.getElementById('yearly-btn');
+            const basicMonthly = document.getElementById('basic-monthly');
+            const proMonthly = document.getElementById('pro-monthly');
+            const premierMonthly = document.getElementById('premier-monthly');
+            const basicYearly = document.getElementById('basic-yearly');
+            const proYearly = document.getElementById('pro-yearly');
+            const premierYearly = document.getElementById('premier-yearly');
+
+            monthlyBtn.addEventListener('click', () => {
+                basicMonthly.style.display = 'block';
+                proMonthly.style.display = 'block';
+                premierMonthly.style.display = 'block';
+                basicYearly.style.display = 'none';
+                proYearly.style.display = 'none';
+                premierYearly.style.display = 'none';
+                monthlyBtn.classList.add('active');
+                yearlyBtn.classList.remove('active');
+            });
+
+            yearlyBtn.addEventListener('click', () => {
+                basicMonthly.style.display = 'none';
+                proMonthly.style.display = 'none';
+                premierMonthly.style.display = 'none';
+                basicYearly.style.display = 'block';
+                proYearly.style.display = 'block';
+                premierYearly.style.display = 'block';
+                yearlyBtn.classList.add('active');
+                monthlyBtn.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
