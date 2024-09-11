@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Music Generator - Music</title>
+    <title>AI Music Generator - Music Generator</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Include Choices.js CSS and JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
@@ -12,22 +12,17 @@
 <body>
     <header>
         <h1>AI Music Generator</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="music.html">Music Generator</a>
+            <a href="library.html">Library</a>
+            <a href="credits.html">Credits</a>
+            <a href="community.html">Global User Community</a>
+            <a href="user-home.html">User Home</a>
+            <a href="logout.html">Logout</a>
+        </nav>
     </header>
     <div class="container">
-        <nav class="vertical-nav">
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="music.html">Music Generator</a>
-                <a href="library.html">Library</a>
-                <a href="credits.html">Credits</a>
-                <a href="community.html">Global User Community</a>
-            </div>
-            <div class="nav-footer">
-                <a href="help.html">Help</a>
-                <a href="about.html">About</a>
-                <a href="career.html">Career</a>
-            </div>
-        </nav>
         <main class="main-content">
             <div class="tool-container">
                 <div class="tool-sidebar">
@@ -36,14 +31,13 @@
                     
                     <label for="instruments">Select Instruments:</label>
                     <select id="instruments" multiple>
-                        <option value="electric_guitar">Electric Guitar</option>
-                        <option value="bass_guitar">Bass Guitar</option>
+                        <option value="piano">Piano</option>
+                        <option value="guitar">Guitar</option>
                         <option value="drums">Drums</option>
-                        <option value="keyboard_piano">Keyboard/Piano</option>
-                        <option value="vocals">Vocals</option>
+                        <option value="bass-guitar">Bass Guitar</option>
                         <option value="synthesizer">Synthesizer</option>
-                        <option value="drum_machine">Drum Machine</option>
-                        <option value="double_bass">Double Bass</option>
+                        <option value="drum-machine">Drum Machine</option>
+                        <option value="double-bass">Double Bass</option>
                         <option value="saxophone">Saxophone</option>
                         <option value="trumpet">Trumpet</option>
                         <option value="trombone">Trombone</option>
@@ -51,21 +45,21 @@
                         <option value="cello">Cello</option>
                         <option value="flute">Flute</option>
                         <option value="oboe">Oboe</option>
-                        <option value="french_horn">French Horn</option>
+                        <option value="french-horn">French Horn</option>
                         <option value="turntable">Turntable</option>
                         <option value="sampler">Sampler</option>
                         <option value="daw">Digital Audio Workstation (DAW)</option>
-                        <option value="bass_synthesizer">Bass Synthesizer</option>
+                        <option value="bass-synthesizer">Bass Synthesizer</option>
                         <option value="harmonica">Harmonica</option>
-                        <option value="acoustic_guitar">Acoustic Guitar</option>
+                        <option value="acoustic-guitar">Acoustic Guitar</option>
                         <option value="banjo">Banjo</option>
                         <option value="fiddle">Fiddle (Violin)</option>
-                        <option value="steel_guitar">Steel Guitar</option>
-                        <option value="electric_guitar_slide">Electric Guitar (with slide)</option>
+                        <option value="steel-guitar">Steel Guitar</option>
+                        <option value="electric-guitar-slide">Electric Guitar (with slide)</option>
                         <option value="mandolin">Mandolin</option>
                         <option value="accordion">Accordion</option>
-                        <option value="double_bass_drums">Double Bass Drums</option>
-                        <option value="bongos_congas">Bongos/Congas</option>
+                        <option value="double-bass-drums">Double Bass Drums</option>
+                        <option value="bongos-congas">Bongos/Congas</option>
                     </select>
 
                     <label for="genre">Select Genre:</label>
@@ -91,18 +85,20 @@
                 </div>
                 <div class="music-preview">
                     <h3>Generated Music Preview</h3>
-                    <div id="waveform" class="waveform">No music generated yet.</div>
+                    <div class="waveform"></div>
+                    <!-- Your existing music preview elements -->
                 </div>
             </div>
+            <aside class="song-details">
+                <h2>Created Song Details</h2>
+                <p><strong>Lyrics:</strong> <span id="lyrics-preview">N/A</span></p>
+                <p><strong>Selected Genre:</strong> <span id="genre-preview">N/A</span></p>
+                <p><strong>Selected Mood:</strong> <span id="mood-preview">N/A</span></p>
+                <p><strong>Prompt:</strong> <span id="prompt-preview">N/A</span></p>
+            </aside>
         </main>
-        <aside class="song-details">
-            <h2>Created Song Details</h2>
-            <p><strong>Lyrics:</strong> <span id="lyrics-preview">N/A</span></p>
-            <p><strong>Selected Genre:</strong> <span id="genre-preview">N/A</span></p>
-            <p><strong>Selected Mood:</strong> <span id="mood-preview">N/A</span></p>
-            <p><strong>Prompt:</strong> <span id="prompt-preview">N/A</span></p>
-        </aside>
     </div>
+
     <footer>
         <p>&copy; 2024 AI Music Generator</p>
     </footer>
@@ -117,44 +113,24 @@
                 searchEnabled: false
             });
 
-            const generateBtn = document.querySelector('.generate-btn');
-            generateBtn.addEventListener('click', async () => {
-                const lyrics = document.getElementById('lyrics').value;
-                const instrumentsSelected = [...document.getElementById('instruments').selectedOptions].map(option => option.value);
-                const genre = document.getElementById('genre').value;
-                const mood = document.getElementById('mood').value;
-                const prompt = document.getElementById('prompt').value;
-
-                // Create data object to send to backend
-                const data = {
-                    lyrics: lyrics,
-                    instruments: instrumentsSelected,
-                    genre: genre,
-                    mood: mood,
-                    prompt: prompt
-                };
-
+            // Check user session
+            const checkSession = async () => {
                 try {
-                    // Send POST request to backend (replace with your backend URL)
-                    const response = await fetch('https://your-backend-url/generate-music', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
+                    const response = await fetch('/api/check-session', {
+                        method: 'GET',
+                        headers: { 'Content-Type': 'application/json' }
                     });
-
-                    const result = await response.json();
-
-                    // Display the generated music and details
-                    document.getElementById('waveform').innerHTML = result.musicPreview || 'Music generated successfully!';
-                    document.getElementById('lyrics-preview').textContent = lyrics || 'N/A';
-                    document.getElementById('genre-preview').textContent = genre || 'N/A';
-                    document.getElementById('mood-preview').textContent = mood || 'N/A';
-                    document.getElementById('prompt-preview').textContent = prompt || 'N/A';
-
+                    if (response.status === 401) {
+                        alert('Session expired or not authenticated. Redirecting to login page.');
+                        window.location.href = 'sign-in.html';
+                    }
                 } catch (error) {
-                    console.error('Error generating music:', error);
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
                 }
-            });
+            };
+
+            checkSession();
         });
     </script>
 </body>
