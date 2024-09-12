@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Handle sign-up form submission
     const signUpForm = document.getElementById('signupForm');
     if (signUpForm) {
         signUpForm.addEventListener('submit', async (event) => {
@@ -12,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('https://97ac-103-82-43-30.ngrok-free.app/signup', {
+                const response = await fetch('https://YOUR_NGROK_URL/signup', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (result.status === 'User created') {
                     alert('Sign-up successful!');
-                    window.location.href = 'sign-in.html'; // Redirect to sign-in page
+                    window.location.href = 'sign-in.html';
                 } else {
                     alert(result.error || 'Sign-up failed');
                 }
@@ -38,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle login form submission
     const loginForm = document.getElementById('signinForm');
     if (loginForm) {
         loginForm.addEventListener('submit', async (event) => {
@@ -50,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('https://97ac-103-82-43-30.ngrok-free.app/login', {
+                const response = await fetch('https://YOUR_NGROK_URL/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
@@ -65,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (result.status === 'Login successful') {
                     alert('Login successful!');
-                    window.location.href = 'index.html'; // Redirect to the main page
+                    window.location.href = 'index.html';
                 } else {
                     alert(result.error || 'Login failed');
                 }
@@ -76,10 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fetch users data (for testing purposes)
     const fetchUsers = async () => {
         try {
-            const response = await fetch('https://97ac-103-82-43-30.ngrok-free.app/users');
+            const response = await fetch('https://YOUR_NGROK_URL/users');
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -97,7 +94,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Example call to fetch users data
-    // Remove or comment out if not needed
-    // fetchUsers();
+    // fetchUsers(); // Uncomment if needed
 });
