@@ -1,132 +1,167 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* Applies to the entire page */
     margin: 0;
     padding: 0;
-    background-color: #1e1e1e;
-    color: #e0e0e0;
+    background-color: #1e1e1e; /* Background color of the page */
+    color: #e0e0e0; /* Text color for the entire page */
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    color: #e0e0e0;
+    background-color: #333; /* Header background color */
+    color: #e0e0e0; /* Text color in header */
     padding: 10px 20px;
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 1.5em;
-}
-
-nav {
-    display: flex;
-    align-items: center;
+    z-index: 1000; /* Ensures the header stays on top of other content */
 }
 
 nav a {
-    color: #e0e0e0;
+    color: #e0e0e0; /* Color for navigation links */
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 16px;
+    margin: 0 10px; /* Space between navigation links */
 }
 
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline on hover for navigation links */
 }
 
 /* Main Content */
 main {
-    padding: 80px 20px 20px; /* Padding top adjusted for fixed header */
+    padding: 80px 20px 20px; /* Padding to avoid content being hidden under the fixed header */
 }
 
 h1 {
-    color: #f04e30;
-    text-align: center;
-    margin-bottom: 20px;
+    color: #f04e30; /* Heading color */
+    margin-bottom: 20px; /* Space below the heading */
 }
 
-.library {
-    max-width: 1200px;
-    margin: 0 auto;
+.input-group {
+    max-width: 500px;
+    margin: 0 auto; /* Centering the search input group */
 }
 
-.song-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
+/* Container for each song item */
 .song-item {
-    background-color: #2c2c2c;
-    border: 1px solid #444;
-    border-radius: 8px;
-    padding: 20px;
+    background-color: #2c2c2c; /* Background color for each song item */
+    border: 1px solid #444; /* Border around each song item */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside each song item */
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow effect for depth */
+    position: relative; /* Allows absolute positioning of menu */
+    transition: box-shadow 0.3s, transform 0.3s; /* Smooth transition effects */
 }
 
 .song-item:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
-    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); /* Shadow on hover */
+    transform: translateY(-5px); /* Lift effect on hover */
 }
 
-.song-info {
-    flex: 1;
-}
-
-.song-actions {
-    display: flex;
-    gap: 10px;
-}
-
-.btn {
-    background-color: #f04e30;
-    color: #fff;
+/* Play/Pause button */
+.btn-play-pause {
+    background-color: #f04e30; /* Button background color */
+    color: #fff; /* Button text color */
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding inside button */
     cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s, transform 0.3s;
+    font-size: 12px; /* Button text size */
 }
 
-.btn:hover {
-    background-color: #d6452b;
-    transform: scale(1.05);
+.btn-play-pause:hover {
+    background-color: #d6452b; /* Button background color on hover */
 }
 
-.edit-btn {
-    background-color: #f0ad4e;
+/* Information about each song */
+.song-info {
+    flex-grow: 1;
+    margin-left: 10px; /* Space between play button and song info */
 }
 
-.edit-btn:hover {
-    background-color: #ec971f;
+/* Button for more options */
+.btn-more {
+    background-color: #444; /* Button background color */
+    color: #e0e0e0; /* Button text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px; /* Padding inside button */
+    cursor: pointer;
+    font-size: 12px; /* Button text size */
 }
 
-.delete-btn {
-    background-color: #d9534f;
+.btn-more:hover {
+    background-color: #555; /* Button background color on hover */
 }
 
-.delete-btn:hover {
-    background-color: #c9302c;
+/* Menu for additional options (appears on hover) */
+.more-options-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 10px; /* Positioned at the end of the song item */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    background-color: #333; /* Background color of the menu */
+    border: 1px solid #444; /* Border around the menu */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    padding: 5px; /* Padding inside the menu */
+}
+
+.song-item:hover .more-options-menu {
+    display: block; /* Show menu on hover */
+}
+
+.more-options-menu a {
+    display: block; /* Each option takes a new line */
+    color: #e0e0e0; /* Text color for menu options */
+    text-decoration: none;
+    margin-bottom: 3px; /* Space between menu options */
+    font-size: 12px; /* Text size for menu options */
+}
+
+.more-options-menu a:hover {
+    color: #f04e30; /* Text color on hover for menu options */
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
-    color: #e0e0e0;
+    background-color: #333; /* Footer background color */
+    color: #e0e0e0; /* Text color in footer */
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center; /* Center pagination */
+}
+
+.page-item.active .page-link {
+    background-color: #f04e30; /* Background color for the active page */
+    color: #fff; /* Text color for the active page */
+}
+
+.page-link {
+    color: #e0e0e0; /* Text color for pagination links */
+    text-decoration: none;
+    background-color: #333; /* Background color for pagination links */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 6px 10px; /* Padding inside pagination links */
+    cursor: pointer;
+    font-size: 12px; /* Font size for pagination links */
+}
+
+.page-link:hover {
+    background-color: #444; /* Background color on hover for pagination links */
 }
