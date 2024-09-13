@@ -2,7 +2,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #121212;
+    background-color: #121212; /* Dark background for dark mode */
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -13,16 +13,16 @@ body {
 }
 
 .signin-container {
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #1e1e1e; /* Slightly lighter background for the container */
     padding: 20px;
-    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 
 h2 {
-    text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
 }
@@ -35,16 +35,20 @@ form {
 label {
     margin-bottom: 5px;
     font-size: 14px;
+    text-align: left;
+    color: #bbb;
 }
 
-input {
-    padding: 10px;
+input[type="email"],
+input[type="password"] {
+    padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #333;
-    border-radius: 4px;
-    background-color: #333;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
+    width: 100%;
 }
 
 input:focus {
@@ -52,29 +56,39 @@ input:focus {
     border-color: #007bff;
 }
 
-button {
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
+button.signin-btn {
+    background-color: #007bff; /* Primary color for the button */
     color: #fff;
+    padding: 12px;
     font-size: 16px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 15px;
 }
 
-button:hover {
-    background-color: #0056b3;
+button.signin-btn:hover {
+    background-color: #0056b3; /* Darken on hover */
 }
 
 footer {
-    text-align: center;
     margin-top: 20px;
     font-size: 12px;
     color: #aaa;
 }
 
-#google-signin-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
+.g_id_signin {
+    margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+    .signin-container {
+        padding: 15px;
+        width: 90%;
+    }
+
+    button.signin-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
 }
