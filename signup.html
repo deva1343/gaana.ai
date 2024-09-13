@@ -10,7 +10,7 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     
     <!-- Content Security Policy (CSP) to allow Google Sign-In -->
-    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' https://accounts.google.com; connect-src 'self' https://97ac-103-82-43-30.ngrok-free.app;"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://accounts.google.com https://cdnjs.cloudflare.com; connect-src 'self' https://97ac-103-82-43-30.ngrok-free.app;"/>
 </head>
 <body>
     <div class="signup-container">
@@ -48,6 +48,7 @@
     <script>
         // Function to handle the Google Sign-In response
         function handleCredentialResponse(response) {
+            // Decode the response credential (ID Token)
             const data = jwt_decode(response.credential);
             console.log("Google ID Token:", data);
 
@@ -60,7 +61,7 @@
             .then(response => response.json())
             .then(result => {
                 console.log(result);
-                if (result.success) {
+                if (result.status === "User created") {
                     alert('Google Sign-In successful!');
                     window.location.href = 'sign-in.html'; // Redirect to sign-in page
                 } else {
