@@ -45,8 +45,11 @@
             const data = jwt_decode(response.credential);
             console.log("Google ID Token:", data);
 
+            // Log before API call
+            console.log("Triggering API call to send Google ID token to the server for signin");
+
             // Send the ID Token to your server for further validation
-            fetch('https://1e58-103-82-43-29.ngrok-free.app/google-signin', {
+            fetch('https://97ac-103-82-43-30.ngrok-free.app/google-signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id_token: response.credential })
