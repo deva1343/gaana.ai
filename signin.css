@@ -1,94 +1,61 @@
+ 
 /* signin.css */
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #121212; /* Dark background for dark mode */
-    color: #ffffff;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 .signin-container {
-    background-color: #1e1e1e; /* Slightly lighter background for the container */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    width: 100%;
     max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-h2 {
+.signin-container h2 {
     margin-bottom: 20px;
-    font-size: 24px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+.signin-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
-label {
-    margin-bottom: 5px;
-    font-size: 14px;
-    text-align: left;
-    color: #bbb;
-}
-
-input[type="email"],
-input[type="password"] {
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background-color: #2a2a2a;
-    color: #fff;
-    font-size: 16px;
+.signin-container input {
     width: 100%;
-}
-
-input:focus {
-    outline: none;
-    border-color: #007bff;
-}
-
-button.signin-btn {
-    background-color: #007bff; /* Primary color for the button */
-    color: #fff;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px;
     margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-button.signin-btn:hover {
-    background-color: #0056b3; /* Darken on hover */
+.signin-container .signin-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signin-container .signin-btn:hover {
+    background-color: #0056b3;
 }
 
 footer {
-    margin-top: 20px;
-    font-size: 12px;
-    color: #aaa;
-}
-
-.g_id_signin {
-    margin-top: 10px;
-}
-
-@media (max-width: 480px) {
-    .signin-container {
-        padding: 15px;
-        width: 90%;
-    }
-
-    button.signin-btn {
-        padding: 10px;
-        font-size: 14px;
-    }
-}
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+} 
